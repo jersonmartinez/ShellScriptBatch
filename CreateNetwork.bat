@@ -4,16 +4,16 @@
 
 		:Init (
 			call :getUserNetwork && cls
-			echo Nombre de red: %network_name%
+			echo Network Name: %network_name%
 			
 			call :getPassNetwork "%network_name%"
-			echo Clave de red: %network_pass%
+			echo Network Key: %network_pass%
 
 			goto :Finished
 		)
 
 		:getUserNetwork (
-			set /p network_name=Nombre de red: 
+			set /p network_name=Network Name: 
 
 			if ["%network_name%"]==[""] (
 				cls && call :getUserNetwork
@@ -24,55 +24,42 @@
 
 		:getPassNetwork (
 			echo Nombre de red: %~1
-			call :getMaskingPassword user_password "Clave de red: "
+			call :getMaskingPassword user_password "Network Key: "
 			
 			if ["%network_pass%"]==[""] (
 				cls && call :getPassNetwork "%~1"
 			) else (
-				call :code "%network_pass%"				
+				call :getSizeString "%network_pass%"				
 			)
 
 			if %contador% LSS 8 (
-				echo Escriba una clave con mas de 8 digitos: %contador%
+				echo Enter a password with at least 8 digits: %contador%
+				timeout /t 10
+				cls && call :getPassNetwork "%~1"
 			)
 
 			exit /b 0
 		)
 
-		:code (
+		:getSizeString (
 			set cadena=%~1
 			
 			set /a "contador=0"
-			call :bucle
+			call :getSizeStringLoop
 
 			exit /b 0
 		)
 
-		:bucle (
+		:getSizeStringLoop (
 			set "cadena=%cadena:~1%"
 			set /a "contador+=1"
 			
 			if defined cadena (
-				goto :bucle
+				goto :getSizeStringLoop
 			)
 			
 			exit /b 0
 		)
-
-		REM :getSizeString (
-		REM 	set /a cont=1
-		REM 	set /p MiClave=%network_pass%
-		REM 	call :lenghtString "%~1"
-		REM 	echo Cantidad de caracteres: %cont%
-		REM )
-
-		REM :lenghtString (
-		REM 	if not defined MiClave (goto :Finished)
-		REM 	set MiClave=%MiClave:~1%
-		REM 	set /a cont +=1
-		REM 	echo Clave: %MiClave% y %cont%
-		REM 	goto :lenghtString
-		REM )
 
 		::::::::::::::::::::::::::::::
 		::     Masking Password     ::
