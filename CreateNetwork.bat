@@ -9,6 +9,10 @@
 			call :getPassNetwork "%network_name%"
 			echo Network Key: %network_pass%
 
+			call :stopNetwork
+			call :setNetwork "%network_name%" "%network_pass%"
+			call :startNetwork
+
 			goto :Finished
 		)
 
@@ -32,8 +36,8 @@
 				call :getSizeString "%network_pass%"				
 			)
 
-			if %contador% LSS 8 (
-				echo Enter a password with at least 8 digits: %contador%
+			if %CountString% LSS 8 (
+				echo Enter a password with at least 8 digits: %CountString%
 				timeout /t 10
 				cls && call :getPassNetwork "%~1"
 			)
@@ -41,20 +45,23 @@
 			exit /b 0
 		)
 
+		:::::::::::::::::::::::::::::
+		::       Size String       ::
+		:::::::::::::::::::::::::::::
 		:getSizeString (
-			set cadena=%~1
-			
-			set /a "contador=0"
+			set String=%~1
+			set /a "CountString=0"
+
 			call :getSizeStringLoop
 
 			exit /b 0
 		)
 
 		:getSizeStringLoop (
-			set "cadena=%cadena:~1%"
-			set /a "contador+=1"
+			set "String=%String:~1%"
+			set /a "CountString+=1"
 			
-			if defined cadena (
+			if defined String (
 				goto :getSizeStringLoop
 			)
 			
@@ -108,17 +115,41 @@
 		::   Create Hosted Network   ::
 		:::::::::::::::::::::::::::::::
 		:setNetwork (
-			netsh wlan set hostednetwork mode=allow ssid="%~1" key="%~2"
+			call :PainText 09 "Hosted Network Setting"
+			netsh wlan set hostednetwork mode=allow ssid="%~1" key="%~2" > nul
+			call :PainText 02 " [Done]"
+			echo.
+
+			exit /b 0
 		)
 
 		:startNetwork (
+			call :PainText 02 "Network Starting"
 			netsh wlan start hostednetwork > nul
+			call :PainText 02 "       [Done]"
+			echo.
+			
+			exit /b 0
 		)
 
 		:stopNetwork (
+			call :PainText 0e "Hosted Network Stoping"
 			netsh wlan stop hostednetwork > nul
+			call :PainText 02 " [Done]"
+			echo.
+
+			exit /b 0
 		)
-		
+
+		:PainText (
+			for /F "tokens=1,2 delims=#" %%a in ('"prompt #$H#$E# & echo on & for %%b in (1) do rem"') do (set "DEL=%%a")
+			<nul set /p ".=%DEL%" > "%~2"
+			findstr /v /a:%1 /R "^$" "%~2" nul
+			del "%~2" > nul 2>&1
+
+			exit /b 0
+		)
+
 		:Finished
 			pause>nul
 	endlocal
