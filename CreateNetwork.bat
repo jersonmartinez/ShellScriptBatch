@@ -3,19 +3,21 @@
 	setlocal EnableExtensions EnableDelayedExpansion
 
 		:Init (
-			call :getUserNetwork && cls
-			echo Network Name: %network_name%
-			
+			call :getUserNetwork && cls			
 			call :getPassNetwork "%network_name%"
-			echo Network Key: %network_pass%
 
 			call :stopNetwork
 			call :setNetwork "%network_name%" "%network_pass%"
 			call :startNetwork
 
+			echo.
+			echo 1) New Network, 2) Stop Network and Close
 			goto :Finished
 		)
 
+		::::::::::::::::::::::::::::
+		::      Network Data      ::
+		::::::::::::::::::::::::::::
 		:getUserNetwork (
 			set /p network_name=Network Name: 
 
@@ -27,7 +29,10 @@
 		)
 
 		:getPassNetwork (
-			echo Nombre de red: %~1
+			call :PainText 0F "Network Name, "
+			call :PainText 02 " %~1"
+			echo.
+
 			call :getMaskingPassword user_password "Network Key: "
 			
 			if ["%network_pass%"]==[""] (
@@ -37,7 +42,7 @@
 			)
 
 			if %CountString% LSS 8 (
-				echo Enter a password with at least 8 digits: %CountString%
+				call :PainText 04 "Enter a password with at least 8 digits"
 				timeout /t 10
 				cls && call :getPassNetwork "%~1"
 			)
@@ -142,7 +147,10 @@
 		)
 
 		:PainText (
-			for /F "tokens=1,2 delims=#" %%a in ('"prompt #$H#$E# & echo on & for %%b in (1) do rem"') do (set "DEL=%%a")
+			for /f "tokens=1,2 delims=#" %%a in ('"prompt #$H#$E# & echo on & for %%b in (1) do rem"') do (
+				set "DEL=%%a"
+			)
+
 			<nul set /p ".=%DEL%" > "%~2"
 			findstr /v /a:%1 /R "^$" "%~2" nul
 			del "%~2" > nul 2>&1
@@ -150,7 +158,22 @@
 			exit /b 0
 		)
 
-		:Finished
-			pause>nul
+		:Finished (
+			set /p selection=Waiting answer: 
+
+			if [%selection%]==[] (
+				goto :Finished
+			)
+
+			if %selection% EQU 1 (
+				goto :Init
+			)
+
+			if %selection% EQU 2 (
+				call :stopNetwork
+			)
+			exit
+		)
+
 	endlocal
 exit
