@@ -2,6 +2,31 @@
 	title Create Network
 	setlocal EnableExtensions EnableDelayedExpansion
 
+		:Arguments (
+
+			if /i [%1]==[/?] ( 
+				goto :ModeUse 
+			)
+
+			if /i [%1]==[-start] ( 
+				call :startNetwork
+				exit 
+			)
+
+			if /i [%1]==[-stop] ( 
+				call :stopNetwork
+				exit 
+			)
+
+			if not defined [%1] goto :Init
+
+			call :stopNetwork
+			call :setNetwork %1 %2
+			call :startNetwork
+
+			exit
+		)
+
 		:Init (
 			call :getUserNetwork && cls			
 			call :getPassNetwork "%network_name%"
@@ -156,6 +181,22 @@
 			del "%~2" > nul 2>&1
 
 			exit /b 0
+		)
+
+		:ModeUse (
+			echo Mode Use to Create Network correctly
+			echo Command: [CreateNetwork] 
+			echo Arguments: 
+			echo -- First parameter: [-stop (Network Stop)], [Network User] 
+			echo -- Second Parameter: [Network Key]
+			echo.
+			echo Example: 
+			echo -- CreateNetwork "My first network" "My secure key"
+			echo.
+			echo Author: 
+			call :PainText 0e "-- Jerson A. Martinez M. (Side Master - Core Stack)"
+			echo.
+			exit
 		)
 
 		:Finished (
