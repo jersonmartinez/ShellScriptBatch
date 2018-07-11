@@ -23,10 +23,12 @@ Digging into the little-traveled land of Shell Script Batch
 | `5` | `Side Master` | [Unidad #1 - Introducción Teórica](https://youtu.be/nkxmd9eRu3A?list=PLpsXSRL10eXNkr6CsO31iizYiqRS0GHcS) |
 | `6` | `Side Master` | [Presentación de proyectos - Aclaraciones sobre el curso](https://youtu.be/uG6ugZ43aM4?list=PLpsXSRL10eXNkr6CsO31iizYiqRS0GHcS) |
 
-Join the Facebook Group called: [ShellScriptBatch](https://www.facebook.com/groups/ShellScriptBatch/)
+Join the group on Facebook called: [ShellScriptBatch](https://www.facebook.com/groups/ShellScriptBatch/)
 
 ## Author
-* **Jerson A. Martínez M.** - *Telematics Engineering (Network, Telecommunications and Software Development)* - [LinkedIn | JersonMartinez](https://www.linkedin.com/in/jersonmartinezsm/)
+* **Jerson A. Martínez M.** - *Telematics Engineering (Network, Telecommunications and Software Development)* 
+
+* Visit my [LinkedIn | JersonMartinez](https://www.linkedin.com/in/jersonmartinezsm/) profile.
 
 ### YouTube Channels
 Trainer on the YouTube platform.
