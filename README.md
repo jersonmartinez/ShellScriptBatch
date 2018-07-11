@@ -24,10 +24,10 @@ Digging into the little-traveled land of Shell Script Batch
 | `6` | `Side Master` | [Presentación de proyectos - Aclaraciones sobre el curso](https://youtu.be/uG6ugZ43aM4?list=PLpsXSRL10eXNkr6CsO31iizYiqRS0GHcS) |
 
 ## Author
-* **Jerson A. Martínez M.** - *Ing. Telemática (Redes, Telecomunicaciones y Desarrollo de Software)* - [LinkedIn | JersonMartinez](https://www.linkedin.com/in/jersonmartinezsm/)
+* **Jerson A. Martínez M.** - *Telematics Engineering (Network, Telecommunications and Software Development)* - [LinkedIn | JersonMartinez](https://www.linkedin.com/in/jersonmartinezsm/)
 
 ### YouTube Channels
+Trainer on the YouTube platform.
+* **[Side Master](https://www.youtube.com/user/sidemastersupremo/)** - *Channel of varied content on computer science, for example: Shell Script (Batch, Bash), Programming, Hacking and Networking, etc...*
 
-* **[Side Master](https://www.youtube.com/user/sidemastersupremo/)** - *Formador en YouTube | Canal de contenido variado sobre Informática (Shell Script, Programación, Hacking, Networking, etc.)*
-
-* **[Core Stack](https://www.youtube.com/user/gvideosmtutorialesgm)** - *Formador en YouTube | Canal de contenido variado sobre Informática (Shell Script, Programación, Hacking, Networking, etc.)*
+* **[Core Stack](https://www.youtube.com/user/gvideosmtutorialesgm)** - *Channel of varied content on computer science, for example: Shell Script (Batch, Bash), Programming, Hacking and Networking, etc...*
