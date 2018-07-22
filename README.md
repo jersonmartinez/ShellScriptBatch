@@ -4,8 +4,8 @@ Digging into the little-traveled land of Shell Script Batch
 ## Algorithms
 |List | Name   | Parameters       | Description       | Path      |
 |----- | ------- | -------------------- | ----------------- | ----------------- |
-|`1` | Delay Time | `Delay Time.bat [seconds]` | Delay Of Time    | [DelayTime/Delay Time.bat](https://github.com/SideMasterGM/ShellScriptBatch/blob/master/DelayTime/Delay%20Time.bat)  |
-|`2` | CreateNetwork | `CreateNetwork [-stop , -start] [network user] [network pass]`   | Management Hosted Networks | [HostedNetwork/CreateNetwork.bat](https://github.com/SideMasterGM/ShellScriptBatch/blob/master/HostedNetwork/CreateNetwork.bat) |
+|`1` | Delay Time | `Delay Time.bat [seconds]` | Delay Of Time    | [Scripts/DelayTime/Delay Time.bat](https://github.com/SideMasterGM/ShellScriptBatch/blob/master/Scripts/DelayTime/Delay%20Time.bat)  |
+|`2` | CreateNetwork | `CreateNetwork [-stop , -start] [network user] [network pass]`   | Management Hosted Networks | [Scripts/HostedNetwork/CreateNetwork.bat](https://github.com/SideMasterGM/ShellScriptBatch/blob/master/Scripts/HostedNetwork/CreateNetwork.bat) |
 
 
 ### Explanation of some algorithms
