@@ -68,9 +68,9 @@ REM LinkedIn: 	https://www.linkedin.com/in/jersonmartinezsm/
 				) else if %SelectOption% EQU 4 (
 					slmgr /ipk PVMJN-6DFY6-9CCP6-7BKTT-D3WVR
 				) else if %SelectOption% EQU 5 (
-					slmgr /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX
+					slmgr /ipk VK7JG-NPHTM-C97JM-9MPGT-3V66T
 				) else if %SelectOption% EQU 6 (
-					slmgr /ipk MH37W-N47XK-V7XM9-C7227-GCQG9
+					slmgr /ipk 2F77B-TNFGY-69QQF-B8YKP-D69TJ
 				) else if %SelectOption% EQU 7 (
 					slmgr /ipk NPPR9-FWDCX-D2C8J-H872K-2YT43
 				) else if %SelectOption% EQU 8 (
