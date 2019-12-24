@@ -1,11 +1,11 @@
-REM Author:  	Jerson Antonio Martínez Moreno
-REM WebPage: 	https://www.fulldevops.es/
-REM Email: 		jersonmartinezsm@gmail.com
-REM LinkedIn: 	https://www.linkedin.com/in/jersonmartinezsm/
-
 @echo off
 	title Windows Activator
 	setlocal EnableExtensions EnableDelayedExpansion
+	
+	REM Author:  	Jerson Antonio Martínez Moreno
+	REM WebPage: 	https://www.fulldevops.es/
+	REM Email: 		jersonmartinezsm@gmail.com
+	REM LinkedIn: 	https://www.linkedin.com/in/jersonmartinezsm/
 
 		:Arguments (
 			call :Init && exit
